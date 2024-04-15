@@ -1,7 +1,7 @@
 
 import pyxel
 
-pyxel.init(50, 50)
+pyxel.init(150, 150)
 pyxel.mouse(True)
 
 def update():
@@ -10,6 +10,6 @@ def update():
 
 def draw():
     pyxel.cls(0)
-    pyxel.rect(pyxel.mouse_x, pyxel.mouse_y, 10, 10, 11)
+    pyxel.rect(pyxel.mouse_x, pyxel.mouse_y, 5, 5, 6)
 
 pyxel.run(update, draw)
