@@ -1,6 +1,6 @@
 
 import pyxel
-
+#コメントのテスト
 pyxel.init(150, 150)
 pyxel.mouse(True)
 
