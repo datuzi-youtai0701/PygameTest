@@ -22,7 +22,20 @@ def draw(self):
     pyxel.cls(0)
     pyxel.rect(pyxel.mouse_x, pyxel.mouse_y, 5, 5, 6)
 
+#マウスの座標を表示
+def textMousePosition(self,x,y)
+    mousePositionText = (
+        f"Current mouse position is({pyxel.mouse_x},{pyxel.mouse_y})
+        )
+    pyxel.text(x, y, mousePositionText, 9)
+
 App()
+
+
+
+
+
+
 
 
 
