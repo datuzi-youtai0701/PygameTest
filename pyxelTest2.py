@@ -5,12 +5,13 @@ import pyxel
 
 class App:
 
-    screenX = 150
-    screenY = 150
+    
     
 
     
     def __init__(self):
+        screenX = 150
+        screenY = 150      
         
         #ディスプレイの初期化
         pyxel.init(self.screenX, self.screenY, title="pyxelTest2.py", fps=10 )
