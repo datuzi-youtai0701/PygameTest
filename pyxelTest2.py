@@ -50,9 +50,9 @@ class App:
         #経過フレーム数でTrueにするトグルをTrueにする
         self.frameCounterEnabled = (pyxel.frame_count % 10) == 0
 
-        if pyxel.btnp(pyxel.MOUSE_LEFT):
+        if pyxel.btnp(pyxel.MOUSE_BUTTON_LEFT):
             self.player.x -= 1
-        elif pyxel.btnp(pyxel.MOUSE_RIGHT):
+        elif pyxel.btnp(pyxel.MOUSE_BUTTON_RIGHT):
             self.player.x += 1
         
         
