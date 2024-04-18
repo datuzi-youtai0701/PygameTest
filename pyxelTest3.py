@@ -48,22 +48,22 @@ class App:
         if pyxel.mouse_x < self.player.x:
             if self.player.x == 0:
                 return
-            self.player.x -= 1
+            self.player.x -= 3
             
         elif pyxel.mouse_x > self.player.x:
             if self.player.x == 130:
                 return
-            self.player.x += 1
+            self.player.x += 3
             
         elif pyxel.mouse_y > self.player.y:
             if self.player.y == 130:
                 return
-            self.player.y += 1
+            self.player.y += 3
             
         elif pyxel.mouse_y < self.player.y:
             if self.player.y == 0:
                 return
-            self.player.y -= 1
+            self.player.y -= 3
 
         
         
