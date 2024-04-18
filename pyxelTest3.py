@@ -17,7 +17,7 @@ class App:
         
         self.player = player(16, 16)
         #ディスプレイの初期化
-        pyxel.init(self.screenX, self.screenY, title="pyxelTest2.py", fps=20 )
+        pyxel.init(self.screenX, self.screenY, title="pyxelTest2.py", fps=25 )
         
         #マウスカーソルを表示
         pyxel.mouse(True)
@@ -48,22 +48,22 @@ class App:
         if pyxel.mouse_x < self.player.x:
             if self.player.x == 0:
                 return
-            self.player.x -= 3
+            self.player.x -= 1
             
         elif pyxel.mouse_x > self.player.x:
             if self.player.x == 130:
                 return
-            self.player.x += 3
+            self.player.x += 1
             
         elif pyxel.mouse_y > self.player.y:
             if self.player.y == 130:
                 return
-            self.player.y += 3
+            self.player.y += 1
             
         elif pyxel.mouse_y < self.player.y:
             if self.player.y == 0:
                 return
-            self.player.y -= 3
+            self.player.y -= 1
 
         
         
