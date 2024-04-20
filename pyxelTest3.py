@@ -1,10 +1,14 @@
 
-
 import pyxel
 import math
 #コメントのテスト
 
+####Constants###
+
+
+
 class player:
+    #xyで表示場所
     def __init__(self, x, y):
         self.x = x
         self.y= y
@@ -20,7 +24,7 @@ class App:
         self.player = player(16, 16)
         self.player2 = player(5, 5)
         #ディスプレイの初期化
-        pyxel.init(self.screenX, self.screenY, title="pyxelTest2.py", fps=20)
+        pyxel.init(self.screenX, self.screenY, title="pyxelTest2.py", fps=60)
         
         #マウスカーソルを表示
         pyxel.mouse(True)
@@ -48,31 +52,37 @@ class App:
         self.frameCounterEnabled = (pyxel.frame_count % 10) == 0
 
         self.movePlayer()
-        self.movePlayer2()
+        #self.movePlayer2()
+        self.move()
 
     def movePlayer(self):
         # マウスが左側
         if pyxel.mouse_x < self.player.x:
-            if self.player.x <= 0:
-                pass
             self.player.x -= 1
         #マウスが右側
         if pyxel.mouse_x > self.player.x:
-            if self.player.x >= 130:
-                pass
             self.player.x += 1
         #マウスが上側
         if pyxel.mouse_y > self.player.y:
-            if self.player.y <= 130:
-                pass
             self.player.y += 1
         #マウスが下側
         if pyxel.mouse_y < self.player.y:
-            if self.player.y >= 0:
-                pass
             self.player.y -= 1
 
+        #画面外に出ないようにするための制限
+        self.player.x = max(self.player.x, 0)
+        self.player.x = min(self.player.x, pyxel.width - 16)
 
+        self.player.y = max(self.player.y, 0) 
+        self.player.y = min(self.player.y, pyxel.height - 16) 
+
+
+
+
+            
+
+
+    #うまく動かないので使わない
     def movePlayer2(self):
 
         # マウスが左側
@@ -80,6 +90,7 @@ class App:
             if self.player2.x <= 0:
                 return
             self.move()
+            
         #マウスが右側
         if pyxel.mouse_x > self.player2.x:
             if self.player2.x >= 140:
@@ -88,31 +99,42 @@ class App:
             
         #マウスが上側
         if pyxel.mouse_y < self.player2.y:
-            if self.player2.y >= 140:
+            if self.player2.y <= 0:
                 return
             self.move()
             
         #マウスが下側
         if pyxel.mouse_y > self.player2.y:
-            if self.player2.y <= 10:
+            if self.player2.y >= 140:
                 return
             self.move()
             
-        
+    #プレイヤー２を動かすための関数
     def move(self):
-        speed = 1
+        speed = 2
+        #移動距離x
         dx = pyxel.mouse_x - self.player2.x
+        #移動距離y
         dy = pyxel.mouse_y - self.player2.y
-           
+
+        #距離から角度を求めるatan2関数
         atan2Degree = pyxel.atan2(dy, dx)
         
-        #print(atan2Degree)
-        dx2 = round(pyxel.cos(atan2Degree)) * speed
-        dy2 = round(pyxel.sin(atan2Degree)) * speed
-        print("dx2",dx2,"dy2",dy2)
-        self.player2.x += dx2
-        self.player2.y += dy2
+        #サインとコサインに角度を入れて距離を求める
+        dx2 = pyxel.cos(atan2Degree) * speed
+        dy2 = pyxel.sin(atan2Degree) * speed
+        #print("dx2",dx2,"dy2",dy2)
         
+        self.player2.x += round(dx2)
+        #画面外に出ないようにするための制限
+        self.player2.x = max(self.player2.x, 0)
+        self.player2.x = min(self.player2.x, pyxel.width - 10)
+        
+        self.player2.y += round(dy2)
+    
+        self.player2.y = max(self.player2.y, 0) 
+        self.player2.y = min(self.player2.y, pyxel.height - 10) 
+
         
         
         
@@ -125,7 +147,6 @@ class App:
         self.textPlayer2Position(0, 140)
         #if self.frameCounterEnabled:
         self.drawCircle()
-        self.textVersion()
 
 
         pyxel.rect(self.player.x, self.player.y, 20, 20, 4)
@@ -154,13 +175,9 @@ class App:
             )
         pyxel.text(x, y, player2PositionText, 9)
 
-    def textVersion(self):
-        pyxel.text(0, 0, "version:1", 9)
+
     
     def drawCircle(self):
-        
-            
-            #for _ in range(1):
-                pyxel.circ(self.x,self.y,self.r,self.col)
+        pyxel.circ(self.x,self.y,self.r,self.col)
    
 App()
