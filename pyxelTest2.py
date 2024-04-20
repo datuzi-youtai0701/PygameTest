@@ -43,27 +43,29 @@ class App:
         #経過フレーム数でTrueにするトグルをTrueにする
         self.frameCounterEnabled = (pyxel.frame_count % 10) == 0
 
+        
 
+    def playerMove(self):
 
         if pyxel.btnp(pyxel.KEY_LEFT, 1,1) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT):
-            if self.player.x == 0:
-                return
             self.player.x -= 1
             
-        elif pyxel.btnp(pyxel.KEY_RIGHT,1,1) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT):
-            if self.player.x == 130:
-                return
+        if pyxel.btnp(pyxel.KEY_RIGHT,1,1) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT):
             self.player.x += 1
             
-        elif pyxel.btnp(pyxel.KEY_DOWN,1,1) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_DOWN):
-            if self.player.y == 130:
-                return
+        if pyxel.btnp(pyxel.KEY_DOWN,1,1) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_DOWN):
             self.player.y += 1
             
-        elif pyxel.btnp(pyxel.KEY_UP,1,1) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_UP):
-            if self.player.y == 0:
-                return
+        if pyxel.btnp(pyxel.KEY_UP,1,1) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_UP):
             self.player.y -= 1
+
+        #画面外に出ないようにするための制限
+        self.player.x = max(self.player.x, 0)
+        self.player.x = min(self.player.x, pyxel.width - 20)
+
+        self.player.y = max(self.player.y, 0) 
+        self.player.y = min(self.player.y, pyxel.height - 20) 
+
 
         
         
@@ -75,7 +77,7 @@ class App:
         self.textMousePosition(16,130)
         #if self.frameCounterEnabled:
         self.drawCircle()
-
+        self.playerMove()
 
         pyxel.rect(self.player.x, self.player.y, 20, 20, 4)
 
