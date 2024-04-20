@@ -52,22 +52,22 @@ class App:
     def movePlayer(self):
         # マウスが左側
         if pyxel.mouse_x < self.player.x:
-            if self.player.x == 0:
+            if self.player.x <= 0:
                 pass
             self.player.x -= 1
         #マウスが右側
         if pyxel.mouse_x > self.player.x:
-            if self.player.x == 130:
+            if self.player.x >= 130:
                 pass
             self.player.x += 1
         #マウスが上側
         if pyxel.mouse_y > self.player.y:
-            if self.player.y == 130:
+            if self.player.y <= 130:
                 pass
             self.player.y += 1
         #マウスが下側
         if pyxel.mouse_y < self.player.y:
-            if self.player.y == 0:
+            if self.player.y >= 0:
                 pass
             self.player.y -= 1
 
