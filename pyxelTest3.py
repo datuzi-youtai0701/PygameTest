@@ -48,7 +48,6 @@ class App:
 
         self.movePlayer()
         self.movePlayer2()
-        self.textVersion()
 
     def movePlayer(self):
         # マウスが左側
@@ -125,6 +124,7 @@ class App:
         self.textPlayer2Position(0, 140)
         #if self.frameCounterEnabled:
         self.drawCircle()
+        self.textVersion()
 
 
         pyxel.rect(self.player.x, self.player.y, 20, 20, 4)
