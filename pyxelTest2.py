@@ -12,8 +12,8 @@ class player:
 class App:
     
     def __init__(self):
-        self.screenX = 150
-        self.screenY = 150
+        self.screenX = 120
+        self.screenY = 160
         
         self.player = player(16, 16)
         #ディスプレイの初期化
