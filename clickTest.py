@@ -1,6 +1,5 @@
 
 import pyxel
-import math
 #コメントのテスト
 
 ####Constants###
@@ -35,7 +34,7 @@ class App:
         pyxel.init(screenX, screenY, title="clickTest.py", fps=20)
         
         #マウスカーソルを表示
-        pyxel.mouse(True)
+        #pyxel.mouse(True)
         
         #経過フレーム数でTrueにするトグル
         self.frameCounterEnabled = False
