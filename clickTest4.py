@@ -8,7 +8,7 @@ import pyxel
 ####Constants###
 
 screenX = 150
-screenY = 150
+screenY = 300
 
 #最初の円の数
 numOrgCircles = 20
