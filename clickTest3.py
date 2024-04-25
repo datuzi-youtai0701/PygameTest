@@ -79,7 +79,7 @@ class App:
         pyxel.init(screenX, screenY, title="clickTest2.py", fps=20)
         
         #マウスカーソルを表示
-        pyxel.mouse(True)
+        #pyxel.mouse(True)
 
         #消した時オンになるトグル
         self.isDeleted = False
