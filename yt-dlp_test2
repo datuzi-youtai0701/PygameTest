@@ -1,0 +1,35 @@
+yt-dlp "https://youtu.be/fJDEX8hL5kM?si=a3kfTApmAOUQu4m7" -f bestvideo+bestaudio/b -- merge-output-format mp4
+
+####最高音質と最高画質のファイルをダウンロード後、くっつけてmp４に変換
+yt-dlp "https://youtu.be/fJDEX8hL5kM?si=a3kfTApmAOUQu4m7" -f bv+ba/b --merge-output-format mp4
+
+
+
+
+
+
+
+
+yt-dlp "https://www.youtube.com/watch?v=8bX5ASmVh4Q" -f 137+140 --merge-output-format mp4 
+
+
+
+yt-dlp "https://www.youtube.com/watch?v=8bX5ASmVh4Q" -f 137+140 --merge-output-format mp4 --output '~/%(channel)s/%(title)s.%(ext)s'
+
+
+"https://youtu.be/fJDEX8hL5kM?si=5Rju9eV14rLAbwc8"
+https://youtube.com/playlist?list=PLcynJ47QaWNuynFw5-uESyLHgHXxhKApj&si=EcXx96cj6bnPsU96
+
+https://youtu.be/fJDEX8hL5kM?si=LGfvlcoTQiiI9c2F
+
+
+####これが正解。-fでのフォーマット指定ではなく-tによる指定をしろと言われるので-tを使う。
+yt-dlp "https://youtube.com/playlist?list=PLcynJ47QaWNuynFw5-uESyLHgHXxhKApj&si=EcXx96cj6bnPsU96" -t mp4
+
+
+
+yt-dlp "https://youtu.be/fJDEX8hL5kM?si=a3kfTApmAOUQu4m7" -f mp4
+
+yt-dlp "https://youtu.be/fJDEX8hL5kM?si=a3kfTApmAOUQu4m7" -F
+
+ダブルクオーテーションが勝手に変換されるので要再入力
