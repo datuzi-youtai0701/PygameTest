@@ -1,3 +1,5 @@
+#####youtubeをダウンロードするためのpythonコード
+
 yt-dlp "https://youtu.be/fJDEX8hL5kM?si=a3kfTApmAOUQu4m7" -f bestvideo+bestaudio/b -- merge-output-format mp4
 
 ####最高音質と最高画質のファイルをダウンロード後、くっつけてmp４に変換
